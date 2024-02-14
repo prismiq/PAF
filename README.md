@@ -7,6 +7,10 @@
 <b>SQLLite</b><br/>
 <code>dotnet add package Microsoft.EntityFrameworkCore.SQLite</code><br/><br/>
 
+<b>Initial Creation</b><br/>
+<code>dotnet ef migrations add InitialCreation</code><br/>
+<code>dotnet ef database update</code><br/><br/>
+
 <h2>Initial Import</h2>
 ImportCsv = Imports the PAF CSV and loads it into an Address table<br/>
 
