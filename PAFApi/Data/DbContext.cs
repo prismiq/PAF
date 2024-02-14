@@ -18,11 +18,6 @@ namespace Db
             // Example:
             // modelBuilder.Entity<User>().ToTable("Users");
             // modelBuilder.Entity<Address>().ToTable("Addresses");
-            modelBuilder.Entity<Address>().HasData(
-                new Address {
-                    Id = 1
-                }
-            );
         }
     }
 }

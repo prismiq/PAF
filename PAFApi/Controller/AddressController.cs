@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using PAFApi.Models;
 using Db;
+using CsvHelper;
+using System.Globalization;
 
 namespace PAFApi.Controller
 {
@@ -56,14 +58,14 @@ namespace PAFApi.Controller
         /// <summary>
         /// Select Specific Address
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="AddressKey"></param>
         /// <returns></returns>
         [HttpPost]
         [Route("/SelectAddress/{id}")]
-        public IActionResult SelectAddress (int? id) {
+        public IActionResult SelectAddress (int? adressKey) {
             
-            if (id.HasValue) throw new Exception();
-            var result = _db.Address.Find(id);
+            if (adressKey.HasValue) throw new Exception();
+            var result = _db.Address.Find(adressKey);
 
             if (result == null) {
                 //No Records return NotFound
@@ -75,5 +77,34 @@ namespace PAFApi.Controller
             
         }
 
+        /// <summary>
+        /// Import Addresses from PAF CSV File
+        /// Requires Headers
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("/ImportAddressData")]
+        public IActionResult ImportAddressData() {
+            string CsvPath = "/Users/admin/PAF/PAFApi/";
+            string DataFileName = "SampleData.csv";
+            
+            //Remove Current Data
+            _db.Database.ExecuteSqlRaw("DELETE FROM Address");
+
+            using (var reader = new StreamReader($"{CsvPath}{DataFileName}"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {                
+                // Loop through each record in the CSV and add it to the database
+                while (csv.Read())
+                {
+                    var record = csv.GetRecord<Address>();
+                    _db.Address.Add(record);
+                    _db.SaveChanges();
+                    _db.Entry(record).State = EntityState.Detached; //Detach after Adding
+                }
+            }
+
+            return Ok();
+        }
     }
 }

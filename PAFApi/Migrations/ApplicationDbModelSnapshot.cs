@@ -29,8 +29,8 @@ namespace PAFApi.Migrations
                     b.Property<string>("BuildingName")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("BuildingNumber")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("BuildingNumber")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("DeliveryPointSuffix")
                         .HasColumnType("TEXT");
@@ -62,6 +62,9 @@ namespace PAFApi.Migrations
                     b.Property<string>("POBox")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PostCode")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PostTown")
                         .HasColumnType("TEXT");
 
@@ -77,18 +80,12 @@ namespace PAFApi.Migrations
                     b.Property<string>("ThoroughfareDescriptor")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UDPRN")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("UDPRN")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.ToTable("Address");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1
-                        });
                 });
 #pragma warning restore 612, 618
         }
