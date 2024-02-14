@@ -9,7 +9,7 @@ ImportCsv = Imports the PAF CSV and loads it into an Address table<br/>
 
 <h2>End Points</h2>
 
-<code>[HttpPost]<code>
+<code>[HttpPost]</code>
 <code>/SearchForAddress/{address}</code>
 Searches for address<br/><br/>
 
