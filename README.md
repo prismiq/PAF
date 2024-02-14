@@ -1,8 +1,11 @@
 <h1>Postcode Address Finder API C# .NET</h1>
 
 <h2>Requirements</h2>
-SQLLite<br/>
-EF Core<br/><br/>
+<b>EF Core</b><br/>
+<code>dotnet add package Microsoft.EntityFrameworkCore</code><br/><br/>
+
+<b>SQLLite</b><br/>
+<code>dotnet add package Microsoft.EntityFrameworkCore.SQLite</code><br/><br/>
 
 <h2>Initial Import</h2>
 ImportCsv = Imports the PAF CSV and loads it into an Address table<br/>
