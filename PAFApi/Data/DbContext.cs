@@ -14,10 +14,9 @@ namespace Db
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configure your entity mappings here (optional)
-            // Example:
-            // modelBuilder.Entity<User>().ToTable("Users");
-            // modelBuilder.Entity<Address>().ToTable("Addresses");
+            modelBuilder.Entity<Address>()
+            .Property(a => a.Id)
+            .ValueGeneratedOnAdd(); // Configures Id as an identity column
         }
     }
 }
