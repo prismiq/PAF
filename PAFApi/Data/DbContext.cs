@@ -3,9 +3,9 @@ using PAFApi.Models;
 
 namespace Db
 {
-    public class DBContext : DbContext
+    public class ApplicationDb : DbContext
     {
-        public DBContext(DbContextOptions<DbContext> options) : base(options)
+        public ApplicationDb(DbContextOptions<ApplicationDb> options) : base(options)
         {
         }
 
@@ -18,6 +18,11 @@ namespace Db
             // Example:
             // modelBuilder.Entity<User>().ToTable("Users");
             // modelBuilder.Entity<Address>().ToTable("Addresses");
+            modelBuilder.Entity<Address>().HasData(
+                new Address {
+                    Id = 1
+                }
+            );
         }
     }
 }

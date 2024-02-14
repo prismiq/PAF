@@ -1,3 +1,6 @@
+using Db;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +11,11 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "PAF API", Version = "v1" });
 });
+
+builder.Services.AddDbContext<ApplicationDb>(o =>
+        o.UseSqlite(builder.Configuration.GetConnectionString("ApplicationDb") 
+        ?? throw new InvalidOperationException("Connection string 'ApplicationDb' not found."))
+    );
 
 var app = builder.Build();
 

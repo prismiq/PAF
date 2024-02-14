@@ -13,9 +13,9 @@ namespace PAFApi.Controller
 {
     public class AddressController : ControllerBase
     {
-        private readonly DBContext _db;
+        private readonly ApplicationDb _db;
 
-        public AddressController(DBContext dbContext) {
+        public AddressController(ApplicationDb dbContext) {
             _db = dbContext;
         }
 
@@ -31,7 +31,7 @@ namespace PAFApi.Controller
             if (string.IsNullOrEmpty(address)) throw new Exception();
 
             //Search for String
-           var result = _db.Address.Where(  a =>
+            var result = _db.Address.Where( a =>
                                             a.PostTown.Contains(address) == true ||
                                             a.BuildingName.ToLower().Contains(address) == true ||
                                             a.OrganisationName.ToLower().Contains(address) == true ||
