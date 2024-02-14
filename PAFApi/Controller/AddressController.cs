@@ -20,7 +20,7 @@ namespace PAFApi.Controller
         }
 
         [HttpPost]
-        [Route("/SearchForAddress")]
+        [Route("/SearchForAddress/{address}")]
         public IActionResult SearchForAddress(string? address) {
             
             if (string.IsNullOrEmpty(address)) throw new Exception();
@@ -49,7 +49,7 @@ namespace PAFApi.Controller
         }
 
         [HttpPost]
-        [Route("/SelectAddress")]
+        [Route("/SelectAddress/{id}")]
         public IActionResult SelectAddress (int? id) {
             
             if (id.HasValue) throw new Exception();
