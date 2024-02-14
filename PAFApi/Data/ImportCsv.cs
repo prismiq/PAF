@@ -24,6 +24,7 @@ namespace PAFApi
             using (var reader = new StreamReader("PAF.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
+                
                 addressList = csv.GetRecords<Address>().ToList(); // Removed re-declaration
             }
 
