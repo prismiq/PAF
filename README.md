@@ -16,5 +16,5 @@ Example: /SearchForAddress/55%Fake%Street<br/><br/>
 
 <code>[HttpPost]</code><br/>
 <code>/SelectAddress/{id}</code><br/><br/>
-Searches for specific address, pass Id (int)><br/>
+Searches for specific address, pass Id (int)<br/>
 Example:  /SelectAddress/1

@@ -19,6 +19,11 @@ namespace PAFApi.Controller
             _db = dbContext;
         }
 
+        /// <summary>
+        /// Find Addresses
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("/SearchForAddress/{address}")]
         public IActionResult SearchForAddress(string? address) {
@@ -48,6 +53,11 @@ namespace PAFApi.Controller
             }
         }
 
+        /// <summary>
+        /// Select Specific Address
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("/SelectAddress/{id}")]
         public IActionResult SelectAddress (int? id) {
