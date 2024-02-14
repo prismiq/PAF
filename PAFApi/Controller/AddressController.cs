@@ -42,7 +42,8 @@ namespace PAFApi.Controller
                                             a.ThoroughfareDescriptor.ToLower().Contains(address) == true ||
                                             a.DependentThoroughfareDescriptor.ToLower().Contains(address) == true ||
                                             a.SubBuildingName.ToLower().Contains(address) == true ||
-                                            (a.BuildingNumber != null && a.BuildingNumber.ToString().Contains(address))
+                                            a.PostCode.ToLower().Contains(address) == true ||
+                                            a.BuildingNumber != null && a.BuildingNumber.ToString().Contains(address)
                                         );
             var addresses = result.ToList();
             
