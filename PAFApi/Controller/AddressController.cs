@@ -95,10 +95,14 @@ namespace PAFApi.Controller
                 // Loop through each record in the CSV and add it to the database
                 while (csv.Read())
                 {
-                    var record = csv.GetRecord<Address>();
-                    _db.Address.Add(record);
-                    _db.SaveChanges();
-                    _db.Entry(record).State = EntityState.Detached; //Detach after Adding
+                    try {
+                        var record = csv.GetRecord<Address>();
+                        _db.Address.Add(record);
+                        _db.SaveChanges();
+                        _db.Entry(record).State = EntityState.Detached; //Detach after Adding
+                    } catch (Exception ex) {
+                        Console.WriteLine($"Error:{csv.GetField(0)}");
+                    }
                 }
             }
 
