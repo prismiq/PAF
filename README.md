@@ -16,8 +16,10 @@ ImportCsv = Imports the PAF CSV and loads it into an Address table<br/>
 End Points<br/>
 ############<br/><br/>
 
-[HttpPost]<br/>
-/SearchForAddress/{address}<br/>
+<code>
+[HttpPost]
+/SearchForAddress/{address}
+</code>
   Searches for address<br/><br/>
 
 Example: /SearchForAddress/55%Fake%Street<br/><br/>
