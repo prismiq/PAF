@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PAFApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dad86e6d540c994d8efde564e7d3fef6856eb10a")]
 [assembly: System.Reflection.AssemblyProductAttribute("PAFApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PAFApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
