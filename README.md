@@ -1,31 +1,22 @@
-########################################################################<br/>
-      C# Postcode Address Finder<br/>                 
-      Based on Royal Mail PAF CSV File<br/>            
-      Prismiq  v1.0                          
-########################################################################<br/><br/>
+<h1>Postcode Address Finder API C# .NET</h1>
 
-Requirements<br/>
-############<br/>
+<h2>Requirements</h2>
 SQLLite<br/>
 EF Core<br/><br/>
 
-README<br/>
-############<br/>
+<h2>Initial Import</h2>
 ImportCsv = Imports the PAF CSV and loads it into an Address table<br/>
 
-End Points<br/>
-############<br/><br/>
+<h2>End Points</h2>
 
-<code>
-[HttpPost]
-/SearchForAddress/{address}
-</code>
-  Searches for address<br/><br/>
+<code>[HttpPost]<code>
+<code>/SearchForAddress/{address}</code>
+Searches for address<br/><br/>
 
 Example: /SearchForAddress/55%Fake%Street<br/><br/>
 
-[HttpPost]<br/>
-/SelectAddress/{id}<br/>
-  Searches for specific address, pass Id (int)<br/><br/>
+<code>[HttpPost]</code>
+<code>/SelectAddress/{id}</code>
+Searches for specific address, pass Id (int)<br/><br/>
 
 Example:  /SelectAddress/1
