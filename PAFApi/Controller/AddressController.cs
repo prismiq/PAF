@@ -27,17 +27,17 @@ namespace PAFApi.Controller
         /// <param name="address"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("/SearchForAddress/{address}")]
+        [Route("/SearchForAddress/")]
         public IActionResult SearchForAddress(string? address) {
             
             if (string.IsNullOrEmpty(address)) throw new Exception();
 
             //Search for String
-            var result = _db.Address.Where( a =>
+            var result = _db.Address.Take(25).Where( a =>
                                             a.PostTown.Contains(address) == true ||
                                             a.BuildingName.ToLower().Contains(address) == true ||
+                                            a.BuildingNumber.ToLower().Contains(address) == true ||
                                             a.OrganisationName.ToLower().Contains(address) == true ||
-                                            a.PostcodeType.ToLower().Contains(address) == true ||
                                             a.DeliveryPointSuffix.ToLower().Contains(address) == true ||
                                             a.ThoroughfareDescriptor.ToLower().Contains(address) == true ||
                                             a.DependentThoroughfareDescriptor.ToLower().Contains(address) == true ||
@@ -58,14 +58,12 @@ namespace PAFApi.Controller
         /// <summary>
         /// Select Specific Address
         /// </summary>
-        /// <param name="AddressKey"></param>
+        /// <param name="Id"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("/SelectAddress/{id}")]
-        public IActionResult SelectAddress (int? adressKey) {
-            
-            if (adressKey.HasValue) throw new Exception();
-            var result = _db.Address.Find(adressKey);
+        [Route("/SelectAddress")]
+        public IActionResult SelectAddress (int Id) {
+            var result = _db.Address.Find(Id);
 
             if (result == null) {
                 //No Records return NotFound
@@ -74,7 +72,6 @@ namespace PAFApi.Controller
                 //Return OK
                 return Ok(new JsonArray {result});
             }
-            
         }
 
         /// <summary>
