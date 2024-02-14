@@ -1,7 +1,7 @@
 ########################################################################<br/>
       C# Postcode Address Finder<br/>                 
       Based on Royal Mail PAF CSV File<br/>            
-      Prismiq  v1.0<br/>                              
+      Prismiq  v1.0                          
 ########################################################################<br/><br/>
 
 Requirements<br/>
