@@ -27,7 +27,7 @@ namespace PAFApi.Controller
         /// <param name="address"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("/SearchForAddress/")]
+        [Route("/SearchForAddress")]
         public IActionResult SearchForAddress(string? address) {
             
             if (string.IsNullOrEmpty(address)) throw new Exception();
